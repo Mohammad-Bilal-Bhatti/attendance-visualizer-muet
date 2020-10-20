@@ -27,11 +27,11 @@ class App extends Component {
 
   async componentDidMount() {
     // TODO: ERROR Cross Browser Origin Error.
-    const response = await fetch(
-      "https://mariamjawaid.files.wordpress.com/2020/03/mids-sessionals.pdf",
+    // const response = await fetch(
+    //   "https://mariamjawaid.files.wordpress.com/2020/03/mids-sessionals.pdf",
 
-      { method: "GET", headers: {} }
-    );
+    //   { method: "GET", headers: {} }
+    // );
 
     // const blob = await response.blob();
     // console.log(blob);
@@ -106,6 +106,16 @@ class App extends Component {
           <div className="row">
             <div className="col-lg-9">
               <div className="container mx-1">
+                <div className="row justify-content-center">
+                    {this.state.tiles.map((tile) => (
+                      <Tiel
+                        title={tile.title}
+                        subTitle={tile.subtitle}
+                        color={tile.color}
+                      />
+                    ))}
+                  </div>
+
                 <div className="row mb-4">
                   {this.state.subjects.map((sub) => (
                     <Donut {...sub} />
@@ -113,15 +123,6 @@ class App extends Component {
                   <Spider {...this.state.spider} />
                 </div>
                 <PlotBar {...this.state.bar} />
-                <div className="row justify-content-center">
-                  {this.state.tiles.map((tile) => (
-                    <Tiel
-                      title={tile.title}
-                      subTitle={tile.subtitle}
-                      color={tile.color}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
             <div className="col">
